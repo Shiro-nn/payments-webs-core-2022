@@ -1,0 +1,28 @@
+{
+  "name": "qurre-pay",
+  "version": "1.1.2",
+  "description": "",
+  "main": "qurre.js",
+  "scripts": {
+    "build": "webpack --progress --display-error-details --display-entrypoints --display-reasons"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qurre-Team/Qurre-Pay.git"
+  },
+  "keywords": [
+    "Qurre",
+    "Payments",
+    "Pay",
+    "Qurre Pay"
+  ],
+  "author": "Qurre Team",
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/Qurre-Team/Qurre-Pay/issues"
+  },
+  "homepage": "https://qurre.store",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

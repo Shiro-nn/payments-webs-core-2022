@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Бот с удобными тикетами, хента.. и т.п">
+        <meta name="author" content="">
+        <title>fydne payments | <%= sdata.name %></title>
+
+        <meta property="og:title" content="fydne payments | <%= sdata.name %> - Настройки" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://payments.fydne.xyz" />
+        <meta property="og:image" content="https://payments.fydne.xyz/fydne.png" />
+        <meta property="og:description" content="fydne payments - платежная система" />
+        <meta name="theme-color" content="#00ffff">
+        
+        <link rel="icon" type="image/ico" href="/fydne.png" />
+        <link rel="stylesheet" type="text/css" href="/configs/css/extras.css">
+        <link rel="stylesheet" type="text/css" href="/configs/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/configs/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="/configs/fa/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/configs/fa/all.min.css">
+        <link href="/css/qiwi.css" rel="stylesheet">
+        <link href="/configs/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/configs/css/one-page-wonder.min.css" rel="stylesheet">
+        <link href="/configs/css/app.min.css" rel="stylesheet" type="text/css">
+        <link href="/configs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/configs/css/select2.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            ::-webkit-scrollbar {
+            width: 9px;
+            }
+            ::-webkit-scrollbar-thumb {
+            background-color: #18191c;
+            border-radius: 99px;
+            }
+            ::-webkit-scrollbar-track {
+            background-color: #00ffff52;
+            }
+            * {
+                cursor: url(/cursors/cyan/standart.cur), crosshair !important;
+            }
+            .btn, a, a * {
+                cursor: url(/cursors/cyan/pointer.cur), pointer !important;
+            }
+            p, h4 {
+                cursor: url(/cursors/cyan/select.cur), pointer !important;
+            }
+            ::-moz-selection { 
+            color: cyan;
+            background: #00000020;
+            border-radius: 15px;
+            }
+            ::selection {
+            color: cyan;
+            background: #00000020;
+            }
+            a[class="text-dark"]
+            {
+                cursor: url(/cursors/cyan/select.cur), pointer !important;
+            }
+            #badge {
+              position: absolute;
+              right: 10px;
+              top: 0px;
+              background-color: #00ffff71;
+              -webkit-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -moz-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -o-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -ms-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              text-align: center;
+              color: #232a35;
+              padding: 0 0.0em;
+              border-top: 0px;
+              line-height: 20px;
+              margin: 0;
+            }
+            #badge:after {
+              content: ' ';
+              position: absolute;
+              right: -20px;
+              top: 0px;
+              border-right: 20px solid transparent;
+              border-bottom: 20px solid #00ffff71;
+            }
+            #badge:before {
+              content: ' ';
+              position: absolute;
+              left: -20px;
+              top: 0;
+              border-left: 20px solid transparent;
+              border-bottom: 20px solid #00ffff71;
+            }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="topbar-dark left-side-menu-dark  pace-done" oncopy="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" oncut="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" ondragstart="return false;" ondrop="return false;" oncontextmenu="return false;">
+        <div id="wrapper">
+            <style>
+            .btn{
+                cursor: url(/cursors/cyan/pointer.cur), pointer !important
+            }
+            body{top:auto!important}
+            @media (max-width:768px){.button-menu-mobile.disable-btn{display:inline!important}.page-title-main{display:none}.menu_small_block{display:block!important}.menu_small_menu{font-size:24px;color:#fff;padding-top:0!important}}
+            </style>
+            <%- include('../header/menu') %>
+            <style>.left-side-men2u{padding:50px 0}</style>
+            <div class="left-side-menu">
+                <div class="slimScrollDiv active" style="position: relative; overflow: hidden; width: auto;">
+                    <div class="slimscroll-menu in" style="overflow: hidden; width: auto;">
+                        <div class="user-box text-center">
+                            <img class="rounded-circle" id="<%= sdata.mid %>1" src="<%= sdata.img %>" style="width:45px" alt="" draggable="false" onerror="javascript:imgs('<%= sdata.mid %>')">
+                            <img class="rounded-circle" id="<%= sdata.mid %>2" src="/shop/img/noimg.png" style="width:45px;display: none;" alt="" draggable="false">
+                            <div class="dropdown">
+                                <a class="text-dark"><%= sdata.name %></a>
+                            </div>
+                            <p class="text-muted"><%= sdata.balance %>₽</p>
+                        </div>
+                        <div id="sidebar-menu" class="active">
+                            <ul class="metismenu in" id="side-menu">
+                                <li class="menu-title">Навигация</li>
+                                <li>
+                                    <a href="/shop/<%= sdata.mid %>/">
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        <span>Информация</span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/shop/<%= sdata.mid %>/settings" class="active">
+                                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                                        <span>Настройки магазина</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="slimScrollBar" style="background: rgb(158, 165, 171); width: 8px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 495.664px;"></div>
+                    <div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+                </div>
+            </div>
+            <div class="content-page">
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card-box card-border">
+                                    <h4 class="header-title mt-0 mb-4">Настройки магазина</h4>
+                                    <form role="form" method="post">
+                                        <input style="display:none" name="settings" value="settings">
+                                        <div class="col-12 mb-2">
+                                            <label>Ссылка на сайт</label>
+                                            <input type="text" name="lr" class="form-control" placeholder="<%= sdata.namelink %>" style="cursor: url(/cursors/cyan/select.cur), pointer !important;">
+                                        </div>
+                                        <div class="col-12 mb-2">
+                                            <label>Ссылка для уведомлений от сервера</label>
+                                            <input type="text" name="nr" class="form-control" placeholder="<%= sdata.notificationlink %>" style="cursor: url(/cursors/cyan/select.cur), pointer !important;">
+                                        </div>
+                                        <div class="col-12 mb-2">
+                                            <label>Редирект при успешной оплате</label>
+                                            <input type="text" name="ar" class="form-control" placeholder="<%= sdata.suclink %>" style="cursor: url(/cursors/cyan/select.cur), pointer !important;">
+                                        </div>
+                                        <div class="col-12 mb-2">
+                                            <label>Редирект при неудачной оплате</label>
+                                            <input type="text" name="fr" class="form-control" placeholder="<%= sdata.errorlink %>" style="cursor: url(/cursors/cyan/select.cur), pointer !important;">
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-bordred-success mt-1 mb-2">Сохранить</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
+
+
+                            <div style="display: none;" class="modal fade bs-example-modal-center show" tabindex="-1" role="dialog" id="ninfo" style="display: block; z-index: 1040; padding-left: 17px;" aria-modal="true" data-select2-id="Create_Panel">
+                                <div class="modal-dialog modal-dialog-centered" data-select2-id="71">
+                                    <div class="modal-content" data-select2-id="70">
+                                        <div class="modal-header mb-0">
+                                            <h4 class="modal-title">Подтверждения оплаты</h4>
+                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                        </div>
+                                        <div class="modal-body" data-select2-id="69">
+                                            <div class="row" data-select2-id="68">
+
+                                                <div class="col-lg-12 mb-0">
+                                                    <div class="card-box card-border mb-2">Полная ссылка.
+                                                        <div class="col-12 mt-0">
+                                                            <label class="col-form-label">Пример:</label>
+                                                            <div><p>https://fydne.xyz/check/payments?<b style="color:red">payid</b>=4&<b style="color:red">id</b>=57&<b style="color:red">sum</b>=200</p></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 mb-0">
+                                                    <div class="card-box card-border mb-2">payid.
+                                                        <div class="col-12 mt-0">
+                                                            <div>ID платежа в нашей системе.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 mb-0">
+                                                    <div class="card-box card-border mb-2">id.
+                                                        <div class="col-12 mt-0">
+                                                            <div>ID платежа, переданный вами.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 mb-0">
+                                                    <div class="card-box card-border mb-2">sum.
+                                                        <div class="col-12 mt-0">
+                                                            <div>Сумма платежа.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 mb-0">
+                                                    <div class="card-box card-border mb-2"><b style="color: red">Важно.</b>
+                                                        <div class="col-12 mt-0">
+                                                            <div>Проверяйте ip, который отправил запрос, <b style="color:aqua"><a onclick="javascript:ip()">список ip сервиса</a></b><br>*список может обновляться</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            
+                            <div style="display: none;" class="modal fade bs-example-modal-center show" tabindex="-1" role="dialog" id="cpinfo" style="display: block; z-index: 1040; padding-left: 17px;" aria-modal="true" data-select2-id="Create_Panel">
+                                <div class="modal-dialog modal-dialog-centered" data-select2-id="71">
+                                    <div class="modal-content" data-select2-id="70">
+                                        <div class="modal-header mb-0">
+                                            <h4 class="modal-title">Создание оплаты</h4>
+                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                        </div>
+                                        <div class="modal-body" data-select2-id="69">
+                                            <div class="row" data-select2-id="68">
+
+                                                <div class="col-lg-12 mb-0">
+                                                    <div class="card-box card-border mb-2">Полная ссылка.
+                                                        <div class="col-12 mt-0">
+                                                            <label class="col-form-label">Пример:</label>
+                                                            <div><p>https://payments.fydne.xyz/payments/<b style="color:red">:shopid</b>?<b style="color:red">id</b>=56&<b style="color:red">sum</b>=200</p></div>
+                                                        </div>
+                                                        <div class="col-12 mt-0">
+                                                            <label class="col-form-label">Виджет:</label>
+                                                            <div><p>https://payments.fydne.xyz/payments/widget/<b style="color:red">:shopid</b>?<b style="color:red">id</b>=56&<b style="color:red">sum</b>=200</p></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 mb-0">
+                                                    <div class="card-box card-border mb-2">:shopid.
+                                                        <div class="col-12 mt-0">
+                                                            <div>ID вашего магазина.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 mb-0">
+                                                    <div class="card-box card-border mb-2">id.
+                                                        <div class="col-12 mt-0">
+                                                            <div>ID платежа, переданный вами.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 mb-0">
+                                                    <div class="card-box card-border mb-2">sum.
+                                                        <div class="col-12 mt-0">
+                                                            <div>Сумма платежа.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div style="display: none;" class="modal fade bs-example-modal-center show" tabindex="-1" role="dialog" id="ninfoninfo" style="display: block; z-index: 1040; padding-left: 17px;" aria-modal="true" data-select2-id="Create_Panel">
+                                <div class="modal-dialog modal-dialog-centered modal-content"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card-box card-border">
+                                    <h4 class="header-title mt-0 mb-4">Вывод</h4>
+                                    <div class="col-12">
+                                        <% if(sdata.verify){ %>
+                                        <form role="form" method="post">
+                                            <input style="display:none" name="output" value="output">
+                                            <div align="center" class="block widget" style="background-color: rgba(0, 0, 0, 0) !important; display: flex; flex-direction: column;">
+                                                <div class="widget__form" style="color: rgb(255, 255, 255);">
+                                                    <div class="widget__field">
+                                                        <input name="sum" class="widget__input" id="donation-amount" required="" style="cursor: url(/cursors/cyan/select.cur), pointer !important;">
+                                                        <label class="widget__label" for="donation-amount">Cумма</label>
+                                                        <div class="widget__currency">₽</div>
+                                                        <div class="widget__bar" style="background: rgb(0, 255, 255);"></div>
+                                                        <div class="widget__message" id="error-message"></div>
+                                                    </div>
+                                                    <button type="submit" id="make-donation" class="widget__button widget__button-shadow" style="background-color: rgb(0, 255, 255); color: rgb(0, 0, 0); box-shadow: none; border: none; cursor: url(/cursors/cyan/pointer.cur), pointer !important;">Вывести</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <% } else {%>
+                                        <div align="center" class="block widget" style="background-color: rgb(46, 55, 68); display: flex; flex-direction: column;">
+                                            <div class="widget__form" style="color: rgb(255, 255, 255);">
+                                                <div class="widget__field">
+                                                    <input name="sum" class="widget__input" id="donation-amount" required="" style="cursor: url(/cursors/cyan/select.cur), pointer !important;">
+                                                    <label class="widget__label" for="donation-amount">Cумма</label>
+                                                    <div class="widget__currency">₽</div>
+                                                    <div class="widget__bar" style="background: rgb(0, 255, 255);"></div>
+                                                    <div class="widget__message" id="error-message"></div>
+                                                </div>
+                                                <button type="submit" id="make-donation" class="widget__button widget__button-shadow" style="background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); box-shadow: none; border: none; cursor: url(/cursors/red/unavailable.cur), pointer !important;"><p style="cursor: url(/cursors/red/unavailable.cur), auto !important;">Вы не прошли<br>верификацию</p></button>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+
+
+                                <% if(!sdata.verify){ %>
+                                <div class="card-box card-border">
+                                    <h4 class="header-title mt-0 mb-4">Верификация</h4>
+                                    <div class="col-12 col-lg-12 mb-2">
+                                        <label style="cursor: url(/cursors/cyan/select.cur), pointer !important;">Вы не прошли верификацию, пройдите ее, нажав <b style="cursor: url(/cursors/green/select.cur), pointer !important;color: lime;">Пройти</b> ниже</label>
+                                        <div class="col-12">
+                                            <button data-toggle="modal" data-target="#emojis" class="btn btn-bordred-success mt-1 mb-2">Пройти</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: none;" class="modal fade bs-example-modal-center show" tabindex="-1" role="dialog" id="emojis" style="display: block; z-index: 1040; padding-left: 17px;" aria-modal="true" data-select2-id="Create_Panel">
+                                    <iframe class="modal-dialog modal-dialog-centered modal-content" src="/shop/<%= sdata.mid %>/verify"></iframe>
+                                </div>
+                                <% } %>
+                                
+                                <div class="card-box card-border">
+                                    <h4 class="header-title mt-0 mb-4">Документация</h4>
+                                    <div class="col-12 col-lg-12 mb-2">
+                                        <button data-toggle="modal" data-target="#ninfo" class="btn btn-bordred-success mt-1 mb-2">Получение подтверждения оплаты от сервера</button>
+                                    </div>
+                                    <div class="col-12 col-lg-12 mb-2">
+                                        <button data-toggle="modal" data-target="#cpinfo" class="btn btn-bordred-success mt-1 mb-2">Создание оплаты</button>
+                                    </div>
+                                    <div class="col-12 col-lg-12 mb-2">
+                                        <button onclick="window.open('https://github.com/fydne/payments-nodejs-example');" class="btn btn-bordred-success mt-1 mb-2">nodejs example</button>
+                                    </div>
+                                </div>
+                                <div style="display: none;" class="modal fade bs-example-modal-center show" tabindex="-1" role="dialog" id="emojis" style="display: block; z-index: 1040; padding-left: 17px;" aria-modal="true" data-select2-id="Create_Panel">
+                                    <iframe class="modal-dialog modal-dialog-centered modal-content" src="/shop/<%= sdata.mid %>/verify"></iframe>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../invite/discord') %>
+        <script src="/js/dev.js"></script>
+        <script src="/js/all.js"></script>
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <script src="/js/metismenu.min.js"></script>
+        <script src="/js/slimscroll.min.js"></script>
+        <script src="/js/app.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/logout.js"></script>
+        <script>
+          function imgs(g){
+            $(`#${g}2`).fadeIn(0);
+            $(`#${g}1`).fadeOut(0);
+          }
+        </script>
+    </body>
+</html>

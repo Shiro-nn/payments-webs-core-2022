@@ -1,0 +1,39 @@
+{
+  "name": "payments-nodejs-example",
+  "version": "1.0.1",
+  "description": "Payments example",
+  "main": "fydne.js",
+  "bin": "fydne.js",
+  "scripts": {
+    "test": "node fydne.js"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/**/*",
+      "dashboard/views/**/*",
+      "dashboard/public/**/*"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fydne/fydne.git"
+  },
+  "author": "fydne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fydne/fydne/issues"
+  },
+  "homepage": "https://github.com/fydne/fydne#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "https": "^1.0.0",
+    "moment-duration-format": "^2.3.2",
+    "mongoose": "^5.10.5",
+    "path": "^0.12.7",
+    "vhost": "file:vhost"
+  }
+}

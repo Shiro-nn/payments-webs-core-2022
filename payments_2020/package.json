@@ -1,0 +1,47 @@
+{
+  "name": "payments",
+  "version": "1.0.1",
+  "description": "fydne payments",
+  "main": "fydne.js",
+  "bin": "fydne.js",
+  "scripts": {
+    "test": "node fydne.js"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/**/*",
+      "dashboard/views/**/*",
+      "dashboard/public/**/*"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fydne/fydne.git"
+  },
+  "author": "fydne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fydne/fydne/issues"
+  },
+  "homepage": "https://github.com/fydne/fydne#readme",
+  "dependencies": {
+    "bson": "^4.0.4",
+    "child_process": "^1.0.2",
+    "colors-generator": "^0.3.4",
+    "connect": "^3.7.0",
+    "cookie-parser": "^1.4.5",
+    "discord-webhook-node": "^1.1.8",
+    "ejs": "^3.0.1",
+    "emailjs": "^3.2.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "moment": "^2.26.0",
+    "moment-duration-format": "^2.3.2",
+    "mongoose": "^5.9.20",
+    "node-superfetch": "^0.1.10",
+    "nodemailer": "^6.4.11",
+    "passport": "^0.4.1",
+    "passport-discord": "^0.1.4",
+    "steam-login": "^0.1.7"
+  }
+}

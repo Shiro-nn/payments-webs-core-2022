@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Бот с удобными тикетами, хента.. и т.п">
+        <meta name="author" content="fydne">
+        <title>fydne payments | <%= sdata.name %></title>
+
+        <meta property="og:title" content="fydne payments | <%= sdata.name %> - верификация" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://payments.fydne.xyz" />
+        <meta property="og:image" content="https://payments.fydne.xyz/fydne.png" />
+        <meta property="og:description" content="fydne payments - платежная система" />
+        <meta name="theme-color" content="#00ffff">
+        
+        <link rel="icon" type="image/ico" href="/fydne.png" />
+        <link rel="stylesheet" type="text/css" href="/configs/css/extras.css">
+        <link rel="stylesheet" type="text/css" href="/configs/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/configs/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="/configs/fa/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/configs/fa/all.min.css">
+        <link href="/configs/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/configs/css/one-page-wonder.min.css" rel="stylesheet">
+        <link href="/configs/css/app.min.css" rel="stylesheet" type="text/css">
+        <link href="/configs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/configs/css/select2.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            ::-webkit-scrollbar {
+            width: 9px;
+            }
+            ::-webkit-scrollbar-thumb {
+            background-color: #18191c;
+            border-radius: 99px;
+            }
+            ::-webkit-scrollbar-track {
+            background-color: #00ffff52;
+            }
+            * {
+                cursor: url(/cursors/cyan/standart.cur), crosshair !important;
+            }
+            .btn, a, a * {
+                cursor: url(/cursors/cyan/pointer.cur), pointer !important;
+            }
+            p, h4 {
+                cursor: url(/cursors/cyan/select.cur), pointer !important;
+            }
+            ::-moz-selection { 
+            color: cyan;
+            background: #00000020;
+            border-radius: 15px;
+            }
+            ::selection {
+            color: cyan;
+            background: #00000020;
+            }
+            a[class="text-dark"]
+            {
+                cursor: url(/cursors/cyan/select.cur), pointer !important;
+            }
+            #badge {
+              position: absolute;
+              right: 10px;
+              top: 0px;
+              background-color: #00ffff71;
+              -webkit-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -moz-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -o-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -ms-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              text-align: center;
+              color: #232a35;
+              padding: 0 0.0em;
+              border-top: 0px;
+              line-height: 20px;
+              margin: 0;
+            }
+            #badge:after {
+              content: ' ';
+              position: absolute;
+              right: -20px;
+              top: 0px;
+              border-right: 20px solid transparent;
+              border-bottom: 20px solid #00ffff71;
+            }
+            #badge:before {
+              content: ' ';
+              position: absolute;
+              left: -20px;
+              top: 0;
+              border-left: 20px solid transparent;
+              border-bottom: 20px solid #00ffff71;
+            }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="topbar-dark left-side-menu-dark  pace-done" oncopy="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" oncut="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" ondragstart="return false;" ondrop="return false;" oncontextmenu="return false;">
+        <div id="wrapper">
+            <style>
+            .btn{
+                cursor: url(/cursors/cyan/pointer.cur), pointer !important
+            }
+            body{top:auto!important}
+            @media (max-width:768px){.button-menu-mobile.disable-btn{display:inline!important}.page-title-main{display:none}.menu_small_block{display:block!important}.menu_small_menu{font-size:24px;color:#fff;padding-top:0!important}}
+            </style>
+            <style>.left-side-men2u{padding:50px 0}</style>
+            <div class="content-page">
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <script>
+                            function download(name){
+                                import('../../../node_modules/fs')
+                                .then(module => {
+                                    module.writeFile(name, name).then(function() {
+                                        // All done! File has been saved.
+                                    });
+                                })
+                            }
+                            </script>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">Верификация</div>
+                                    <% if(error){ %>
+                                    <div class="card-body" id="error-verify"><b style="color: red">Данные не совпадают</b></div>
+                                    <% } %>
+                                    <div class="card-body">Создайте документ, поместив его в след. директорию(+название):<br><b style="color: red">/.verify/fydne/payments.txt</b><br>и поместите туда:<br><b style="color: red"><%= sdata.verifykey %></b></div>
+                                    <div class="card-body">
+                                        <form role="form" method="post">
+                                            <button type="submit" class="btn btn-bordred-success mt-1 mb-2">Проверить</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/dev.js"></script>
+        <script src="/js/all.js"></script>
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <% if(suc){ %>
+            <script src="/js/reload.js"></script>
+        <% } %>
+    </body>
+</html>

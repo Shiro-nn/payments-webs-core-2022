@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Бот с удобными тикетами, хента.. и т.п">
+        <meta name="author" content="">
+        <title>fydne payments | <%= sdata.name %></title>
+
+        <meta property="og:title" content="fydne payments | <%= sdata.name %>" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://payments.fydne.xyz" />
+        <meta property="og:image" content="https://payments.fydne.xyz/fydne.png" />
+        <meta property="og:description" content="fydne payments - платежная система" />
+        <meta name="theme-color" content="#00ffff">
+        
+        <link rel="icon" type="image/ico" href="/fydne.png" />
+        <link rel="stylesheet" type="text/css" href="/configs/css/extras.css">
+        <link rel="stylesheet" type="text/css" href="/configs/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/configs/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="/configs/fa/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/configs/fa/all.min.css">
+        <link href="/css/qiwi.css" rel="stylesheet">
+        <link href="/configs/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/configs/css/one-page-wonder.min.css" rel="stylesheet">
+        <link href="/configs/css/app.min.css" rel="stylesheet" type="text/css">
+        <link href="/configs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/configs/css/select2.min.css" rel="stylesheet" type="text/css">
+        <link href="/css/payments.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            ::-webkit-scrollbar {
+            width: 9px;
+            }
+            ::-webkit-scrollbar-thumb {
+            background-color: #18191c;
+            border-radius: 99px;
+            }
+            ::-webkit-scrollbar-track {
+            background-color: #00ffff52;
+            }
+            * {
+                cursor: url(/cursors/cyan/standart.cur), crosshair !important;
+            }
+            .btn, a, a * {
+                cursor: url(/cursors/cyan/pointer.cur), pointer !important;
+            }
+            p, h4 {
+                cursor: url(/cursors/cyan/select.cur), pointer !important;
+            }
+            ::-moz-selection { 
+            color: cyan;
+            background: #00000020;
+            border-radius: 15px;
+            }
+            ::selection {
+            color: cyan;
+            background: #00000020;
+            }
+            a[class="text-dark"]
+            {
+                cursor: url(/cursors/cyan/select.cur), pointer !important;
+            }
+            #badge {
+              position: absolute;
+              right: 10px;
+              top: 0px;
+              background-color: #00ffff71;
+              -webkit-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -moz-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -o-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -ms-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              text-align: center;
+              color: #232a35;
+              padding: 0 0.0em;
+              border-top: 0px;
+              line-height: 15px;
+              margin: 0;
+            }
+            #badge:after {
+              content: ' ';
+              position: absolute;
+              right: -20px;
+              top: 0px;
+              border-right: 20px solid transparent;
+              border-bottom: 15px solid #00ffff71;
+            }
+            #badge:before {
+              content: ' ';
+              position: absolute;
+              left: -20px;
+              top: 0;
+              border-left: 20px solid transparent;
+              border-bottom: 15px solid #00ffff71;
+            }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="topbar-dark left-side-menu-dark  pace-done" oncopy="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" oncut="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" ondragstart="return false;" ondrop="return false;" oncontextmenu="return false;">
+        <div class="container">
+            <div class="underhead">
+                <div class="underhead__head">
+                    <span>счет</span>
+                </div>
+                <div class="underhead__from">Вам выставлен счет от <a class="from__name" href="<%= sdata.namelink %>" target="_blank" rel="noopener noreferrer"><%= sdata.name %></a></div>
+            </div>
+            <div class="amount__info">
+                <div class="info__name">Получатель:</div>
+                <div class="info__descr"><%= sdata.name %></div>
+                <div class="clr"></div>
+                <div class="info__name">Описание:</div>
+                <div class="info__descr">Платеж #<%= id %></div>
+                <div class="clr"></div>
+                <div class="info__name">ID платежа:</div>
+                <div class="info__descr"><%= id %></div>
+                <div class="clr"></div>
+                <div class="line"></div>
+                <div class="info__result">
+                    <div class="info__name">Сумма:</div>
+                    <div class="info__descr">
+                        <%= sum %><i class="fa fa-rub"><i class="hide">₽</i></i>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="slist">
+                <ul class="sectid329">
+                    <li role="dialog" data-toggle="modal" data-target="#qiwi">
+                        <div class="tbl">
+                            <div class="td">
+                                <div class="ps_logo ps_logo_full_20916096"></div>
+                                <div class="ps_name">QIWI</div>
+                                <div class="ps_curr">
+                                    <label class="custom-label">
+                                        <span class="cur">RUB</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li role="dialog" data-toggle="modal" data-target="#yandex">
+                        <div id="badge">Beta</div>
+                        <div class="tbl">
+                            <div class="td">
+                                <div class="ps_logo ps_logo_full_77482663"></div>
+                                <div class="ps_name">Яндекс Деньги</div>
+                                <div class="ps_curr">
+                                    <label class="custom-label">
+                                        <span class="cur">RUB</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li role="dialog" data-toggle="modal" data-target="#card">
+                        <div class="tbl">
+                            <div class="td">
+                                <div class="ps_logo ps_logo_full_visa"></div>
+                                <div style="display: none;" class="ps_logo ps_logo_full_mastercard"></div>
+                                <div style="display: none;" class="ps_logo ps_logo_full_maestro"></div>
+                                <div style="display: none;" class="ps_logo ps_logo_full_mir"></div>
+                                <div class="ps_name">Карта</div>
+                                <div class="ps_curr">
+                                    <label class="custom-label">
+                                        <span class="cur">RUB</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div style="display: none;" class="modal fade bs-example-modal-center show" tabindex="-1" role="dialog" id="yandex" style="display: block; z-index: 1040; padding-left: 17px;" aria-modal="true" data-select2-id="yandexd">
+            <div class="modal-dialog modal-dialog-centered" data-select2-id="71">
+                <div class="modal-content" data-select2-id="70">
+                    <div class="modal-header mb-0">
+                        <h4 class="modal-title">Оплата через Yandex</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body" data-select2-id="69">
+                        <div class="row" data-select2-id="68">
+                            <form role="form" method="post">
+                                <div class="col-12 mb-2">
+                                    <input style="display:none" name="payment" value="yandex">
+                                    <input placeholder="Email" type="text" name="email" class="form-control" style="cursor: url(/cursors/cyan/select.cur), pointer !important;">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-bordred-success mt-1 mb-2">Оплатить</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: none;" class="modal fade bs-example-modal-center show" tabindex="-1" role="dialog" id="qiwi" style="display: block; z-index: 1040; padding-left: 17px;" aria-modal="true" data-select2-id="qiwid">
+            <div class="modal-dialog modal-dialog-centered" data-select2-id="71">
+                <div class="modal-content" data-select2-id="70">
+                    <div class="modal-header mb-0">
+                        <h4 class="modal-title">Оплата через QiWi</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body" data-select2-id="69">
+                        <div class="row" data-select2-id="68">
+                            <form role="form" method="post">
+                                <div class="col-12 mb-2">
+                                    <input style="display:none" name="payment" value="qiwi">
+                                    <input placeholder="Email" type="text" name="email" class="form-control" style="cursor: url(/cursors/cyan/select.cur), pointer !important;">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-bordred-success mt-1 mb-2">Оплатить</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: none;" class="modal fade bs-example-modal-center show" tabindex="-1" role="dialog" id="card" style="display: block; z-index: 1040; padding-left: 17px;" aria-modal="true" data-select2-id="cardd">
+            <div class="modal-dialog modal-dialog-centered" data-select2-id="71">
+                <div class="modal-content" data-select2-id="70">
+                    <div class="modal-header mb-0">
+                        <h4 class="modal-title">Оплата через Карту</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body" data-select2-id="69">
+                        <div class="row" data-select2-id="68">
+                            <form role="form" method="post">
+                                <div class="col-12 mb-2">
+                                    <input style="display:none" name="payment" value="qiwi">
+                                    <input placeholder="Email" type="text" name="email" class="form-control" style="cursor: url(/cursors/cyan/select.cur), pointer !important;">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-bordred-success mt-1 mb-2">Оплатить</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../invite/discord') %>
+        <script src="/js/dev.js"></script>
+        <script src="/js/all.js"></script>
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <script src="/js/metismenu.min.js"></script>
+        <script src="/js/slimscroll.min.js"></script>
+        <script src="/js/app.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/logout.js"></script>
+        <script src="/js/payments.js"></script>
+        <script>
+          function imgs(g){
+            $(`#${g}2`).fadeIn(0);
+            $(`#${g}1`).fadeOut(0);
+          }
+        </script>
+        <script>
+        var isFramed = false;
+        try {
+          isFramed = window != window.top || document != top.document || self.location != top.location;
+        } catch (e) {
+          isFramed = true;
+        }
+        if (isFramed) {
+            window.location.href = `/payments/<%= sdata.mid %>/widget?id=<%= id %>&sum=<%= sum %>`;
+            window.top.location.href = `/payments/<%= sdata.mid %>?id=<%= id %>&sum=<%= sum %>`;
+        }
+        </script>
+    </body>
+</html>

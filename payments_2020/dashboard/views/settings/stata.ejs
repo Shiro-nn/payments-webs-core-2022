@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Настройки аккаунта">
+        <meta name="author" content="">
+        <title>fydne payments</title>
+
+        <meta property="og:title" content="fydne payments - настройки" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://payments.fydne.xyz" />
+        <meta property="og:image" content="https://payments.fydne.xyz/fydne.png" />
+        <meta property="og:description" content="fydne payments - платежная система" />
+        <meta name="theme-color" content="#00ffff">
+        
+        <link rel="icon" type="image/ico" href="/fydne.png" />
+        <link rel="stylesheet" type="text/css" href="/configs/css/extras.css">
+        <link rel="stylesheet" type="text/css" href="/configs/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/configs/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="/configs/fa/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/configs/fa/all.min.css">
+        <link href="/configs/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/configs/css/one-page-wonder.min.css" rel="stylesheet">
+        <link href="/configs/css/app.min.css" rel="stylesheet" type="text/css">
+        <link href="/configs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/configs/css/select2.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            ::-webkit-scrollbar {
+            width: 9px;
+            }
+            ::-webkit-scrollbar-thumb {
+            background-color: #18191c;
+            border-radius: 99px;
+            }
+            ::-webkit-scrollbar-track {
+            background-color: #00ffff52;
+            }
+            * {
+                cursor: url(/cursors/cyan/standart.cur), auto !important;
+            }
+            .btn, a, a * {
+                cursor: url(/cursors/cyan/pointer.cur), pointer !important;
+            }
+            p, h4 {
+                cursor: url(/cursors/cyan/select.cur), pointer !important;
+            }
+            ::-moz-selection { 
+            color: cyan;
+            background: #00000020;
+            border-radius: 15px;
+            }
+            ::selection {
+            color: cyan;
+            background: #00000020;
+            }
+            a[class="text-dark"]
+            {
+                cursor: url(/cursors/cyan/select.cur), pointer !important;
+            }
+            #badge {
+              position: absolute;
+              right: 10px;
+              top: 0px;
+              background-color: #00ffff71;
+              -webkit-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -moz-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -o-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              -ms-transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              transform: rotate(+45deg) scale(1) skew(0deg) translate(10px);
+              text-align: center;
+              color: #232a35;
+              padding: 0 0.0em;
+              border-top: 0px;
+              line-height: 20px;
+              margin: 0;
+            }
+            #badge:after {
+              content: ' ';
+              position: absolute;
+              right: -20px;
+              top: 0px;
+              border-right: 20px solid transparent;
+              border-bottom: 20px solid #00ffff71;
+            }
+            #badge:before {
+              content: ' ';
+              position: absolute;
+              left: -20px;
+              top: 0;
+              border-left: 20px solid transparent;
+              border-bottom: 20px solid #00ffff71;
+            }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="topbar-dark left-side-menu-dark  pace-done" oncopy="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" oncut="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" ondragstart="return false;" ondrop="return false;" oncontextmenu="return false;">
+        <div id="wrapper">
+            <style>
+            .btn{
+                cursor: url(/cursors/cyan/pointer.cur), pointer !important
+            }
+            body{top:auto!important}
+            @media (max-width:768px){.button-menu-mobile.disable-btn{display:inline!important}.page-title-main{display:none}.menu_small_block{display:block!important}.menu_small_menu{font-size:24px;color:#fff;padding-top:0!important}}
+            </style>
+            <%- include('../header/menu') %>
+            <style>.left-side-men2u{padding:50px 0}</style>
+            <div class="left-side-menu">
+                <div class="slimScrollDiv active" style="position: relative; overflow: hidden; width: auto;">
+                    <div class="slimscroll-menu in" style="overflow: hidden; width: auto;">
+                        <div class="user-box text-center">
+                                <img src="/fydne.png" alt="" title="" class="rounded-circle img-thumbnail avatar-lg" draggable="false">
+                            <div class="dropdown">
+                                <a class="text-dark"><%= udata.user %></a>
+                            </div>
+                            <p class="text-muted"><%= udata.balance %>₽</p>
+                        </div>
+                        <div id="sidebar-menu" class="active">
+                            <ul class="metismenu in" id="side-menu">
+                                <li class="menu-title">Навигация</li>
+                                <li class="active">
+                                    <a href="/account" class="active">
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        <span>Информация</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/account/configs">
+                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                        <span>Настройки</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slimScrollBar" style="background: rgb(158, 165, 171); width: 8px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 495.664px;"></div>
+                    <div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+                </div>
+            </div>
+            <div class="content-page">
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">Баланс</div>
+                                    <div class="card-body"><%= udata.balance %>₽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../invite/discord') %>
+        <script src="/js/dev.js"></script>
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <script src="/js/metismenu.min.js"></script>
+        <script src="/js/slimscroll.min.js"></script>
+        <script src="/js/app.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/logout.js"></script>
+    </body>
+    <script src="/js/all.js"></script>
+</html>

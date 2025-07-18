@@ -1,0 +1,14 @@
+<script>
+    var isFramed = false;
+    try {
+      isFramed = window != window.top || document != top.document || self.location != top.location;
+    } catch (e) {
+      isFramed = true;
+    }
+    if (isFramed) {
+        window.top.location.href = '<%= url %>';
+    }
+    if (!isFramed) {
+        window.location.href = '<%= url %>';
+    }
+</script>

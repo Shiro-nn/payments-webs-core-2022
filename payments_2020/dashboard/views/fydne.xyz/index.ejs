@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+      <link rel="icon" href="/fydne.png">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Перенаправление">
+      <meta name="author" content="fydne">
+
+      <meta property="og:title" content="fydne" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://fydne.xyz" />
+      <meta property="og:image" content="https://fydne.xyz/fydne.png" />
+      <meta property="og:description" content="fydne - Перенаправление" />
+      <meta name="theme-color" content="#00ffff">
+      
+      <title>fydne</title>
+    </head>
+    <body oncopy="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" oncut="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" ondragstart="return false;" ondrop="return false;" oncontextmenu="return false;">
+        
+      <style>
+        ::-webkit-scrollbar {
+        width: 0px;
+        }
+        ::-webkit-scrollbar-thumb {
+        background-color: #00000000;
+        border-radius: 99px;
+        }
+        ::-webkit-scrollbar-track {
+        background-color: #00000000;
+        }
+        body {
+          overflow: hidden;
+        }</style>
+    <link rel="icon" type="image/ico" href="/fydne.png" />
+    <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <style class="INLINE_PEN_STYLESHEET_ID">
+            @import url(https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100);
+        * {
+          box-sizing: border-box;
+          margin: 0;
+        }
+        
+        h1, p, h2, h3, h4, ul, li, div {
+          margin: 0;
+          padding: 0;
+        }
+        
+        .loading-page {
+          background: #0d0d0d;
+          width: 100vw;
+          height: 100vh;
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-pack: center;
+                  justify-content: center;
+          -webkit-box-align: center;
+                  align-items: center;
+        }
+        .loading-page .counter {
+          text-align: center;
+        }
+        .loading-page .counter p {
+          font-size: 40px;
+          font-weight: 100;
+          color: #f60d54;
+        }
+        .loading-page .counter h1 {
+          color: white;
+          font-size: 60px;
+          margin-top: -10px;
+        }
+        .loading-page .counter hr {
+          background: cyan;
+          border: none;
+          height: 1px;
+        }
+        .loading-page .counter {
+          position: relative;
+          width: 200px;
+        }
+        .loading-page .counter h1.abs {
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+        .loading-page .counter .color {
+          width: 0px;
+          overflow: hidden;
+          color: #f60d54;
+        }
+        </style>
+    <script id="INLINE_PEN_JS_ID">
+var _0x8827=["\x25","\x68\x74\x6D\x6C","\x2E\x6C\x6F\x61\x64\x69\x6E\x67\x2D\x70\x61\x67\x65\x20\x2E\x63\x6F\x75\x6E\x74\x65\x72\x20\x68\x31","\x77\x69\x64\x74\x68","\x63\x73\x73","\x2E\x6C\x6F\x61\x64\x69\x6E\x67\x2D\x70\x61\x67\x65\x20\x2E\x63\x6F\x75\x6E\x74\x65\x72\x20\x68\x72","\x3C\x73\x74\x79\x6C\x65\x3E\x3A\x3A\x2D\x77\x65\x62\x6B\x69\x74\x2D\x73\x63\x72\x6F\x6C\x6C\x62\x61\x72\x20\x7B\x77\x69\x64\x74\x68\x3A\x20\x39\x70\x78\x3B\x7D\x3A\x3A\x2D\x77\x65\x62\x6B\x69\x74\x2D\x73\x63\x72\x6F\x6C\x6C\x62\x61\x72\x2D\x74\x68\x75\x6D\x62\x20\x7B\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x63\x6F\x6C\x6F\x72\x3A\x20\x23\x31\x38\x31\x39\x31\x63\x39\x34\x3B\x62\x6F\x72\x64\x65\x72\x2D\x72\x61\x64\x69\x75\x73\x3A\x20\x39\x39\x70\x78\x3B\x7D\x3A\x3A\x2D\x77\x65\x62\x6B\x69\x74\x2D\x73\x63\x72\x6F\x6C\x6C\x62\x61\x72\x2D\x74\x72\x61\x63\x6B\x20\x7B\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x63\x6F\x6C\x6F\x72\x3A\x20\x23\x30\x30\x30\x30\x30\x30\x30\x30\x3B\x7D\x3C\x2F\x73\x74\x79\x6C\x65\x3E","\x61\x70\x70\x65\x6E\x64","\x68\x65\x61\x64","\x3C\x6C\x69\x6E\x6B\x20\x68\x72\x65\x66\x3D\x22\x2F\x76\x65\x6E\x64\x6F\x72\x2F\x62\x6F\x6F\x74\x73\x74\x72\x61\x70\x2F\x63\x73\x73\x2F\x62\x6F\x6F\x74\x73\x74\x72\x61\x70\x2E\x6D\x69\x6E\x2E\x63\x73\x73\x22\x20\x72\x65\x6C\x3D\x22\x73\x74\x79\x6C\x65\x73\x68\x65\x65\x74\x22\x3E","\x3C\x6C\x69\x6E\x6B\x20\x68\x72\x65\x66\x3D\x22\x2F\x63\x73\x73\x2F\x62\x6F\x6F\x74\x73\x74\x72\x61\x70\x2E\x6D\x69\x6E\x2E\x63\x73\x73\x22\x20\x72\x65\x6C\x3D\x22\x73\x74\x79\x6C\x65\x73\x68\x65\x65\x74\x22\x20\x74\x79\x70\x65\x3D\x22\x74\x65\x78\x74\x2F\x63\x73\x73\x22\x3E","\x3C\x6C\x69\x6E\x6B\x20\x68\x72\x65\x66\x3D\x22\x2F\x63\x73\x73\x2F\x69\x63\x6F\x6E\x73\x2E\x6D\x69\x6E\x2E\x63\x73\x73\x22\x20\x72\x65\x6C\x3D\x22\x73\x74\x79\x6C\x65\x73\x68\x65\x65\x74\x22\x20\x74\x79\x70\x65\x3D\x22\x74\x65\x78\x74\x2F\x63\x73\x73\x22\x3E","\x3C\x6C\x69\x6E\x6B\x20\x68\x72\x65\x66\x3D\x22\x2F\x63\x73\x73\x2F\x61\x70\x70\x2E\x6D\x69\x6E\x2E\x63\x73\x73\x22\x20\x72\x65\x6C\x3D\x22\x73\x74\x79\x6C\x65\x73\x68\x65\x65\x74\x22\x20\x74\x79\x70\x65\x3D\x22\x74\x65\x78\x74\x2F\x63\x73\x73\x22\x3E","\x3C\x6C\x69\x6E\x6B\x20\x72\x65\x6C\x3D\x22\x73\x74\x79\x6C\x65\x73\x68\x65\x65\x74\x22\x20\x68\x72\x65\x66\x3D\x22\x68\x74\x74\x70\x73\x3A\x2F\x2F\x6D\x61\x78\x63\x64\x6E\x2E\x62\x6F\x6F\x74\x73\x74\x72\x61\x70\x63\x64\x6E\x2E\x63\x6F\x6D\x2F\x66\x6F\x6E\x74\x2D\x61\x77\x65\x73\x6F\x6D\x65\x2F\x34\x2E\x37\x2E\x30\x2F\x63\x73\x73\x2F\x66\x6F\x6E\x74\x2D\x61\x77\x65\x73\x6F\x6D\x65\x2E\x6D\x69\x6E\x2E\x63\x73\x73\x22\x3E","\x66\x61\x64\x65\x4F\x75\x74","\x2E\x6C\x6F\x61\x64\x69\x6E\x67\x2D\x70\x61\x67\x65","\x66\x61\x64\x65\x49\x6E","\x23\x77\x72\x61\x70\x70\x65\x72","\x3C\x73\x74\x79\x6C\x65\x3E\x62\x6F\x64\x79\x20\x7B\x6F\x76\x65\x72\x66\x6C\x6F\x77\x3A\x20\x61\x75\x74\x6F\x3B\x7D\x3C\x2F\x73\x74\x79\x6C\x65\x3E","\x72\x65\x61\x64\x79"];$(document)[_0x8827[19]](function(){var _0xc043x1=0;var _0xc043x2=0;var _0xc043x3=setInterval(function(){$(_0x8827[2])[_0x8827[1]](_0xc043x2+ _0x8827[0]);$(_0x8827[5])[_0x8827[4]](_0x8827[3],_0xc043x2+ _0x8827[0]);_0xc043x1++;_0xc043x2++;if(_0xc043x1== 30){$(_0x8827[8])[_0x8827[7]](_0x8827[6]);$(_0x8827[8])[_0x8827[7]](_0x8827[9]);$(_0x8827[8])[_0x8827[7]](_0x8827[10]);$(_0x8827[8])[_0x8827[7]](_0x8827[11]);$(_0x8827[8])[_0x8827[7]](_0x8827[12]);$(_0x8827[8])[_0x8827[7]](_0x8827[13])};if(_0xc043x1== 101){clearInterval(_0xc043x3);$(_0x8827[15])[_0x8827[14]](150);$(_0x8827[17])[_0x8827[16]](150);$(_0x8827[8])[_0x8827[7]](_0x8827[18])}},1)})
+</script>
+        <div class="loading-page">
+            <div class="counter">
+                <hr style="width: 0%;">
+                <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+            </div>
+        </div>
+        <div id="wrapper" style="display: none;">
+            <style>.goog-te-banner-frame{height:27px!important;bottom:0!important;top:auto!important}#goog-gt-tt{display:none!important}body{top:auto!important}@media (max-width:768px){.button-menu-mobile.disable-btn{display:inline!important}.page-title-main{display:none}.menu_small_block{display:block!important}.menu_small_menu{font-size:24px;color:#fff;padding-top:0!important}}</style>
+            <style>@media screen and (min-width:990px){div.bypass_col{max-width:260px;min-width:260px}}</style>
+            <style>
+                * {
+                    cursor: url(/cursors/cyan/standart.cur), crosshair !important;
+                }
+                .btn, a, a * {
+                    cursor: url(/cursors/cyan/pointer.cur), pointer !important;
+                }
+                p, h4 {
+                    cursor: url(/cursors/cyan/select.cur), pointer !important;
+                }
+                ::-moz-selection { 
+                color: cyan;
+                background: #00000020;
+                border-radius: 15px;
+                }
+                ::selection {
+                color: cyan;
+                background: #00000020;
+                }
+            </style>
+            <div class="content">
+                <div class="content-page ml-0">
+                    <div class="content">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="row justify-content-center">
+                                        
+
+                                        <div class="col-md-12 col-md-auto bypass_col">
+                                            <div class="card-box card-border">
+                                                <div class="row">
+                                                    <div class="cell col-3">
+                                                        <div style="margin-top:2px">
+                                                            <img class="rounded-circle" src="/fydne.png" style="width:45px" alt="" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell col-8">
+                                                        <p class="text-center mb-0 font-16 border-0 ml-0" style="width:145px;color:#fff;overflow-wrap:break-word">Ticket Bot</p>
+                                                    </div>
+                                                    <div class="cell col-12 mt-1">
+                                                        <a style="display:block;color:#fff" class="btn text-center btn-secondary btn-xs" role="button" href="https://bot.fydne.xyz">Перейти</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="col-md-12 col-md-auto bypass_col">
+                                            <div class="card-box card-border">
+                                                <div class="row">
+                                                    <div class="cell col-3">
+                                                        <div style="margin-top:2px">
+                                                            <img class="rounded-circle" src="/img/anime.png" style="width:45px" alt="" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell col-8">
+                                                        <p class="text-center mb-0 font-16 border-0 ml-0" style="width:145px;color:#fff;overflow-wrap:break-word">fydne Bot</p>
+                                                    </div>
+                                                    <div class="cell col-12 mt-1">
+                                                        <a style="display:block;color:#fff" class="btn text-center btn-secondary btn-xs" role="button" href="https://bot2.fydne.xyz">Перейти</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="col-md-12 col-md-auto bypass_col">
+                                            <div class="card-box card-border">
+                                                <div class="row">
+                                                    <div class="cell col-3">
+                                                        <div style="margin-top:2px">
+                                                            <img class="rounded-circle" src="https://cdn.fydne.xyz/scpsl.store/img/etc/scpsl.png" style="width:45px" alt="" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell col-8">
+                                                        <p class="text-center mb-0 font-16 border-0 ml-0" style="width:145px;color:#fff;overflow-wrap:break-word">scp:sl</p>
+                                                    </div>
+                                                    <div class="cell col-12 mt-1">
+                                                        <a style="display:block;color:#fff" class="btn text-center btn-secondary btn-xs" role="button" href="https://scpsl.store">Перейти</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="col-md-12 col-md-auto bypass_col">
+                                            <div class="card-box card-border">
+                                                <div class="row">
+                                                    <div class="cell col-3">
+                                                        <div style="margin-top:2px">
+                                                            <img class="rounded-circle" src="/fydne.png" style="width:45px" alt="" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell col-8">
+                                                        <p class="text-center mb-0 font-16 border-0 ml-0" style="width:145px;color:#fff;overflow-wrap:break-word">fydne payments</p>
+                                                    </div>
+                                                    <div class="cell col-12 mt-1">
+                                                        <a style="display:block;color:#fff" class="btn text-center btn-secondary btn-xs" role="button" href="https://payments.fydne.xyz">Перейти</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="col-md-12 col-md-auto bypass_col">
+                                            <div class="card-box card-border">
+                                                <div class="row">
+                                                    <div class="cell col-3">
+                                                        <div style="margin-top:2px">
+                                                            <img class="rounded-circle" src="https://uptimerobot.com/assets/ico/favicon.ico" style="width:45px" alt="" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell col-8">
+                                                        <p class="text-center mb-0 font-16 border-0 ml-0" style="width:145px;color:#fff;overflow-wrap:break-word">Status</p>
+                                                    </div>
+                                                    <div class="cell col-12 mt-1">
+                                                        <a style="display:block;color:#fff" class="btn text-center btn-secondary btn-xs" role="button" href="https://status.fydne.xyz">Перейти</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('../invite/discord') %>
+        </div>
+        <script src="/js/dev.js"></script>
+        <script src="/js/all.js"></script>
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/logout.js"></script>
+    </body>
+</html>

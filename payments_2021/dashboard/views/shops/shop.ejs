@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <%- include('../modules/head') %>
+    <title>Магазин '<%=shop.name%>' | Qurre Pay</title>
+    <meta property="og:title" content="Магазин '<%=shop.name%>'" />
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/modules/croppie.css" />
+    <link rel="stylesheet" href="/css/shops/shop.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="<%= cdn_host %>/scpsl.store/css/font-awesome.min.css">
+  </head>
+  <body>
+    <%- include('../modules/header') %>
+    <div id="wrapper" align="center">
+        <div class="z0">
+            <div class="z1">
+                <div class="z2">
+                    <div class="z16">
+                        <i class="fa fa-minus z84" id="withdrawal_click"></i>
+                        <span class="z82"></span>
+                        <i class="fa-light fa-money-bill"></i> <span><qq id="balance"><%= shop.balance %></qq>₽</span>
+                    </div>
+                    <div class="z3">
+                        <div class="z4">
+                            <div id="avatar" class="z5" style="background-image: url('<%= shop.avatar %>');">
+                                <div class="z6" onclick="FileLoad();">Изменить<br>аватар</div>
+                                <input id="f1" class="f1" type="file" tabindex="0" multiple="" accept=".jpg,.jpeg,.png,.gif,.webp,.ico" aria-label="Изменить аватар">
+                                <div class="z8" onclick="FileLoad();"></div>
+                            </div>
+                        </div>
+                        <div class="z9">
+                            <div class="z10">
+                                <span class="z11 totext" id="name"><%= shop.name %></span>
+                                <i class="fa fa-pencil z12 p" id="name_edit"></i>
+                            </div>
+                            <p class="z15" id="mssg_name" style="display: none;"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="z17">
+                        <div class="z18">
+                            <div class="z19 selected" id="stats-click">
+                                <p>Статистика</p>
+                            </div>
+                            <div class="z19" id="settings-click">
+                                <p>Настройки</p>
+                            </div>
+                            <div class="z19" id="keys-click">
+                                <p>Ключи</p>
+                            </div>
+                            <div class="z19" id="api-click">
+                                <p>API</p>
+                            </div>
+                        </div>
+
+
+                        <div class="z20"></div>
+
+
+                        <div class="z21">
+                            <div id="stats">
+                                <div id="pay_stats"></div>
+                                <canvas id="pay_prefer"></canvas>
+                            </div>
+                            <div id="settings" style="display: none;">
+                                <div>
+                                    <div class="z22"><label>Ссылка на сайт</label></div>
+                                    <div class="z22">
+                                        <div class="z23">
+                                            <span class="z24 totext" id="link_main"><%=shop.links.main%></span>
+                                            <i class="fa fa-pencil z12 p" id="link_main_edit"></i>
+                                            <p class="z15" id="mssg_link_main" style="display: none;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="z22"><label>Редирект при успешной оплате</label></div>
+                                    <div class="z22">
+                                        <div class="z23">
+                                            <span class="z24 totext" id="link_successfully"><%=shop.links.successfully%></span>
+                                            <i class="fa fa-pencil z12 p" id="link_successfully_edit"></i>
+                                            <p class="z15" id="mssg_link_successfully" style="display: none;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="z22"><label>Редирект при неудачной оплате</label></div>
+                                    <div class="z22">
+                                        <div class="z23">
+                                            <span class="z24 totext" id="link_error"><%=shop.links.error%></span>
+                                            <i class="fa fa-pencil z12 p" id="link_error_edit"></i>
+                                            <p class="z15" id="mssg_link_error" style="display: none;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="z22"><label>Ссылка для уведомлений от сервера</label></div>
+                                    <div class="z22">
+                                        <div class="z23">
+                                            <span class="z24 totext" id="link_notification"><%=shop.links.notification%></span>
+                                            <i class="fa fa-pencil z12 p" id="link_notification_edit"></i>
+                                            <p class="z15" id="mssg_link_notification" style="display: none;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="z22"><label>WebHook (Discord)</label></div>
+                                    <div class="z22">
+                                        <div class="z23">
+                                            <span class="z24 totext" id="webhook"><%=shop.webhook%></span>
+                                            <i class="fa fa-pencil z12 p" id="webhook_edit"></i>
+                                            <p class="z15" id="mssg_webhook" style="display: none;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="keys" style="display: none;">
+                                <div>
+                                    <div class="z22"><label>Публичный ключ <i class="fa fa-info-circle p aria_lb" aria-label="Нужен для создания оплаты"></i></label></div>
+                                    <div class="z22">
+                                        <div class="z23">
+                                            <span class="z24" id="key_public"><%=shop.key_public%></span>
+                                            <i class="fa fa-gear z12 p aria_lb2" aria-label="Сбросить публичный ключ" id="key_public_reset"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="z22"><label>Приватный ключ <i class="fa fa-info-circle p aria_lb3" aria-label="Нужен для просмотра информации о магазине и платежах"></i></label></div>
+                                    <div class="z22">
+                                        <div class="z23">
+                                            <span class="z24">Скрыт для безопасности</span>
+                                            <i class="fa fa-gear z12 p aria_lb2" aria-label="Сбросить приватный ключ" id="key_private_reset"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="api" style="display: none;">
+<div class="z22"><h4 class="y4 txt">Ip сервиса</h4></div>
+<div class="z22"><label>Запрос:</label></div>
+<div class="z22"><div class="y2 txt"><code>POST</code><strong class="y1">=></strong><code>/api/ip</code></div></div><br>
+<div class="z22"><label>Ответ:</label></div>
+<div class="z22"><div class="y2"><pre class="y3"><span>["ip"]</span></pre></div></div>
+<div class="z22"><h4 class="y4 txt">Информация о магазине</h4></div>
+<div class="z22"><label>Запрос:</label></div>
+<div class="z22"><div class="y2 txt"><code>POST</code><strong class="y1">=></strong><code>/api/shop</code></div></div><br>
+<div class="z22"><div class="y2">
+    <label>body:</label><br>
+    <pre class="y3"><span>{"private": "Ваш приватный ключ"}</span></pre>
+</div></div>
+<div class="z22"><label>Ответ:</label></div>
+<div class="z22"><div class="y2">
+    <pre class="y3"><span>{</span>
+    <span>"balance": <%=shop.balance%>, //Баланс магазина</span>
+    <span>"id": <%=shop.id%>, //ID магазина</span>
+    <span>"name": "<%=shop.name%>", //Название магазина</span>
+    <span>"webhook": "https://discord.com/api/webhooks/**/****" //WebHook</span>
+<span>}</span></pre>
+</div></div>
+<div class="z22"><h4 class="y4 txt">Информация о платеже</h4></div>
+<div class="z22"><label>Запрос:</label></div>
+<div class="z22"><div class="y2 txt"><code>POST</code><strong class="y1">=></strong><code>/api/payments?type=info</code></div></div><br>
+<div class="z22"><div class="y2">
+    <label>body:</label><br>
+    <pre class="y3"><span>{</span>
+    <span>"private": "Ваш приватный ключ",</span>
+    <span>"payment": "ID платежа"</span>
+<span>}</span></pre>
+</div></div>
+<div class="z22"><label>Ответ:</label></div>
+<div class="z22"><div class="y2">
+    <pre class="y3"><span>{</span>
+    <span>"desc": "Описание платежа",</span>
+    <span>"shop": <%=shop.id%>, //id магазина</span>
+    <span>"sum": 0, //сумма платежа</span>
+    <span>"method": "Метод оплаты", //будет пустым, если счет не оплачен</span>
+    <span>"paid": false, //оплачен ли счет</span>
+    <span>"canceled": false //отменен ли счет</span>
+<span>}</span></pre>
+</div></div>
+<div class="z22"><h4 class="y4 txt">Отменить платеж</h4></div>
+<div class="z22"><label>Запрос:</label></div>
+<div class="z22"><div class="y2 txt"><code>POST</code><strong class="y1">=></strong><code>/api/payments?type=cancel</code></div></div><br>
+<div class="z22"><div class="y2">
+    <label>body:</label><br>
+    <pre class="y3"><span>{</span>
+    <span>"private": "Ваш приватный ключ",</span>
+    <span>"payment": "ID платежа"</span>
+<span>}</span></pre>
+</div></div>
+<div class="z22"><label>Ответ:</label></div>
+<div class="z22"><div class="y2">
+    <pre class="y3"><span>{</span>
+    <span>"status": "successfully",</span>
+    <span>"message": "payment canceled"</span>
+<span>}</span></pre>
+</div></div>
+<div class="z22"><h4 class="y4 txt">Создание платежа</h4></div>
+<div class="z22"><label>Запрос:</label></div>
+<div class="z22"><div class="y2 txt"><code>POST</code><strong class="y1">=></strong><code>/api/payments?type=create</code></div></div><br>
+<div class="z22"><div class="y2">
+    <label>body:</label><br>
+    <pre class="y3"><span>{</span>
+    <span>"public": "Ваш публичный ключ",</span>
+    <span>"sum": 100, //сумма платежа</span>
+    <span>"desc": "Описание платежа"</span>
+<span>}</span></pre>
+</div></div>
+<div class="z22"><label>Ответ:</label></div>
+<div class="z22"><div class="y2">
+    <pre class="y3"><span>{</span>
+    <span>"status": "successfully",</span>
+    <span>"payment": "****", //id платежа</span>
+    <span>"link": "https://pay.scpsl.store/pay/****" //ссылка на оплату</span>
+<span>}</span></pre>
+</div></div>
+<div class="z22"><h4 class="y4 txt">Уведомление об оплате</h4></div>
+<div class="z22"><label>Запрос:</label></div>
+<div class="z22"><div class="y2 txt"><code><%=shop.links.notification%></code><strong class="y1"><=</strong><code>POST</code></div></div><br>
+<div class="z22"><div class="y2">
+    <label>body:</label><br>
+    <pre class="y3"><span>{"payment": "ID платежа"}</span></pre>
+</div></div>
+<div class="z22"><label>Ответ от сервера должен быть успешным (Code: 200)</label></div>
+<div class="z22"><label>В случае ошибки, сервер отправит запрос через 5 мин и через час, в случае повторной ошибки</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q1" style="display: none;">
+        <div class="q2">
+            <div class="q3" role="dialog" aria-labelledby="uid_3704" tabindex="-1" aria-modal="true">
+                <div class="q4">
+                    <div id="upload"></div>
+                    <div id="cr-boundary" class="v1" style="display: none;">
+                        <div class="cr-boundary" aria-dropeffect="none">
+                            <img id="select_avatar" height="400px">
+                        </div>
+                    </div>
+                    <div class="q5">
+                        <button type="button" class="q6">
+                            <div class="q7">Отмена</div>
+                        </button>
+                        <button type="button" class="q8">
+                            <div class="upload-result">Сохранить</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" class="z31" id="pk_smth">
+        <div class="z32">
+            <div class="z33">
+                <div class="z34">
+                    <h4 class="z35">Сброс приватного ключа</h4>
+                    <i class="fa fa-close p z28" aria-hidden="true" id="pk_close"></i>
+                </div>
+                <div class="z25">
+                    <div class="z26">
+                        <h5 class="z27">Ваш новый приватный ключ</h5>
+                        <div class="z36">
+                            <div class="z37">
+                                <input class="z38" id="pk_text" readonly="readonly" spellcheck="false" type="text">
+                            </div>
+                            <button type="button" class="z29" id="pk_copy">
+                                <div class="z30">Копировать</div>
+                            </button>
+                        </div>
+                        <div class="z39">После закрытия этого окна, вы не сможете получить данный ключ.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" class="z31" id="withdrawal_el">
+        <div class="z32">
+            <div class="z33">
+                <div class="z34">
+                    <h4 class="z35">Вывод средств</h4>
+                    <i class="fa fa-close p z28" aria-hidden="true" id="withdrawal_close"></i>
+                </div>
+                <div class="z25 z88">
+                    <div class="z26" id="withdrawal_div">
+                        <select id="withdrawal">
+                            <option disabled selected value="0">Выберите способ вывода</option>
+                            <option value="1">Qiwi</option>
+                            <option value="2">YooMoney</option>
+                            <option value="3">Карта</option>
+                            <option value="4">Номер телефона</option>
+                        </select>
+                    </div>
+                    <input class="z38 z89" id="withdrawal_input" type="text" placeholder="Номер Qiwi, YooMoney, карты или телефона;">
+                    <input class="z38 z89" id="withdrawal_sum" type="text" placeholder="Сумма вывода">
+                    <button id="withdrawal_submit" class="z87">Вывести</button>
+                    <div class="z39">Комиссия на вывод - 5%. Банк может взимать дополнительную комиссию</div>
+                    <div class="z39">Минимальная сумма вывода - 20₽</div>
+                    <div class="z39" id="withdrawal_msg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="waiting" class="z13" style="display: none;">
+        <div class="loader" align="center">
+            <link rel="stylesheet" href="<%= cdn_host %>/scpsl.store/css/profile_loader.css">
+            <div class="ll">
+                <div class="arc"></div>
+                <div class="arc"></div>
+                <div class="arc"></div>
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script src="/js/all.js"></script>
+    <script src="<%= cdn_host %>/scpsl.store/js/jquery/jquery.min.js"></script>
+    <script src="<%= cdn_host %>/scpsl.store/js/croppie.js"></script>
+    <script src="<%= cdn_host %>/scpsl.store/js/chart.min.js"></script>
+    <script src="<%= cdn_host %>/scpsl.store/js/canvasjs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/shops/shop.js"></script>
+    <script src="/js/fixes.js"></script>
+    <%- include('../modules/invite') %>
+  </body>
+</html>

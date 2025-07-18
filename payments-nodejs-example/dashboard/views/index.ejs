@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="fydne">
+        <title>example</title>
+        <link rel="icon" type="image/ico" href="/fydne.png" />
+        <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//payments.fydne.xyz/configs/css/main.css">
+        <link rel="stylesheet" type="text/css" href="//payments.fydne.xyz/configs/fa/bootstrap.min.css">
+    </head>
+    <body style="background-color: #2f3136;">
+        <form role="form" method="post">
+            <input style="display:none" name="donate" value="donate">
+            <div class="block widget" style="background-color: rgb(46, 55, 68); display: flex; flex-direction: column;">
+                <div class="widget__text" style="display: none;"></div>
+                <div class="widget__form" style="color: rgb(255, 255, 255);">
+                    <div class="widget__field">
+                        <input name="sum" class="widget__input" id="donation-amount" required="">
+                        <label class="widget__label" for="donation-amount">Cумма</label>
+                        <div class="widget__currency">₽</div>
+                        <div class="widget__bar" style="background: rgb(0, 255, 255);"></div>
+                        <div class="widget__message" id="error-message"></div>
+                    </div>
+                    <button type="submit" id="make-donation" class="widget__button widget__button-shadow" style="background-color: rgb(0, 255, 255); color: rgb(0, 0, 0); box-shadow: none; border: none;">Оплатить</button>
+                </div>
+            </div>
+        </form>
+        <p role="dialog" data-toggle="modal" data-target="#example">Widget</p>
+        <div style="display: none;" class="modal fade bs-example-modal-center show" tabindex="-1" role="dialog" id="example" style="display: block; z-index: 1040; padding-left: 17px;" aria-modal="true" data-select2-id="example">
+            <iframe style="max-width: 1000px !important;width: 1000px !important;" class="modal-dialog modal-dialog-centered modal-content" src="/widget?sum=50"></iframe>
+        </div>
+        <script src="/js/all.js"></script>
+    </body>
+    <script src="//payments.fydne.xyz/vendor/jquery/jquery.min.js"></script>
+    <script src="//payments.fydne.xyz/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</html>

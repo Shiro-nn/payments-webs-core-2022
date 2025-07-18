@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <%- include('../modules/head') %>
+    <title>Список магазинов | Qurre Pay</title>
+    <meta property="og:title" content="Список магазинов" />
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/shops/list.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="<%= cdn_host %>/scpsl.store/css/font-awesome.min.css">
+  </head>
+  <body>
+    <%- include('../modules/header') %><br>
+    <div class="q6">
+        <div class="q7">
+            <h4 class="q8">Ваши магазины</h4>
+            <a class="q9">Добавить новый</a>
+        </div>
+        <div class="q1">
+            <% shops.forEach(function(shop) { %>
+            <a class="q2" href="/shops/<%= shop.id %>">
+                <img class="q3" src="<%= shop.avatar %>">
+                <hr class="q4">
+                <p class="q5"><%= shop.name %></p>
+            </a>
+            <% }); %>
+        </div>
+    </div>
+    <div class="q10 closed" style="display: none;">
+        <div class="q11">
+            <div class="q12">
+                <div class="q13">
+                    <h4 class="q14">Создание магазина</h4>
+                    <i class="q15 fas fa-close"></i>
+                </div>
+                <div class="q16">
+                    <label class="q19">Название магазина, которое будет отображаться на сайте</label>
+                    <br><input class="q18" maxlength="20" minlength="4">
+                    <br><button class="q17">Создать магазин</button>
+                    <p class="q20"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/all.js"></script>
+    <script src="<%= cdn_host %>/scpsl.store/js/jquery/jquery.min.js"></script>
+    <script src="/js/shops/list.js"></script>
+    <script src="/js/fixes.js"></script>
+    <%- include('../modules/invite') %>
+  </body>
+</html>

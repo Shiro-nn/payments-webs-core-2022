@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <%- include('../modules/head') %>
+    <title>Оплата | Qurre Pay</title>
+    <meta property="og:title" content="Оплата" />
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/payments/pay.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="<%= cdn_host %>/scpsl.store/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="q0">
+        <div class="q1">
+            <div class="q2"><span>Оплата</span></div>
+            <div class="q3"><span>Вам выставлен счет от <a class="q4" href="<%=shop.links.main%>" target="_blank"><%=shop.name%></a></span></div>
+        </div>
+        <div class="q5">
+            <div class="q6">Получатель:</div>
+            <div class="q7"><%=shop.name%></div>
+            <div class="q8"></div>
+            
+            <div class="q6">Описание:</div>
+            <div class="q7"><%=pay.desc%></div>
+            <div class="q8"></div>
+            
+            <div class="q6">ID платежа:</div>
+            <div class="q7"><%=pay.id%></div>
+            <div class="q8"></div>
+            
+            <div class="q6">Статус платежа:</div>
+            <%if(pay.paid){%><div class="q7 q11" id="pay1">Успешно оплачен</div>
+            <%}else if(pay.canceled){%><div class="q7 canceled" id="pay1">Отменен</div>
+            <%}else{%><div class="q7 q12" id="pay1">Ожидает оплаты</div><%}%>
+            <div class="q8"></div>
+            
+            <div class="q9"></div>
+            <div class="q10">
+                <div class="q6">Сумма:</div>
+                <div class="q7"><%=pay.sum%><i class="fa fa-rub"></i></div>
+                <div class="q8"></div>
+            </div>
+        </div>
+        <%if(!pay.paid && !pay.canceled){%>
+        <div class="q13" id="pay2">
+            <div class="q14">
+                <li id="card">
+                    <div class="q15">
+                        <div class="q16">
+                            <div class="q17 card"></div>
+                            <div class="q18">Карта</div>
+                        </div>
+                    </div>
+                </li>
+                <li id="qiwi">
+                    <div class="q15">
+                        <div class="q16">
+                            <div class="q17 qiwi"></div>
+                            <div class="q18">Qiwi</div>
+                        </div>
+                    </div>
+                </li>
+                <li id="yoomoney">
+                    <div class="q15">
+                        <div class="q16">
+                            <div class="q17 yoomoney"></div>
+                            <div class="q18">YooMoney</div>
+                        </div>
+                    </div>
+                </li>
+                <li id="tl_first">
+                    <div class="q15">
+                        <div class="q16">
+                            <div class="q17 telephone"></div>
+                            <div class="q18">Телефон</div>
+                        </div>
+                    </div>
+                </li>
+                <li id="crypto">
+                    <div class="q15">
+                        <div class="q16">
+                            <div class="q17 crypto"></div>
+                            <div class="q18">Крипта</div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
+        <%}%>
+    </div>
+    <div id="waiting" class="q19" style="display: none;">
+        <div class="loader" align="center">
+            <link rel="stylesheet" href="<%= cdn_host %>/scpsl.store/css/profile_loader.css">
+            <div class="ll">
+                <div class="arc"></div>
+                <div class="arc"></div>
+                <div class="arc"></div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" class="z31" id="tl_smth">
+        <div class="z32">
+            <div class="z33">
+                <div class="z34">
+                    <h4 class="z35">Оплата через телефон</h4>
+                    <i class="fa fa-close z28" aria-hidden="true" id="tl_close"></i>
+                </div>
+                <div class="z25">
+                    <div class="z26">
+                        <h5 class="z27">Введите телефон, через который вы будете оплачивать</h5>
+                        <div class="z36">
+                            <div class="z37">
+                                <input class="z38" id="telephone_input" type="text" value="+7">
+                            </div>
+                            <button type="button" class="z29" id="pk_copy">
+                                <div class="z30" id="telephone">Оплатить</div>
+                            </button>
+                        </div>
+                        <div class="z39">Платеж придет в течении 2х минут. <qq id="tl_error"></qq></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" class="z31" id="card_panel">
+        <div class="z32">
+            <div class="z33">
+                <div class="z34">
+                    <h4 class="z35">Оплата через карту</h4>
+                    <i class="fa fa-close z28" aria-hidden="true" id="card_close"></i>
+                </div>
+                <div class="z25">
+                    <div class="z26">
+                        <h5 class="z27">Выберите платежный шлюз</h5>
+                        <div class="z36">
+                            <div class="qc1">
+                                <li id="qurre_card">
+                                    <div class="qc2">
+                                        <div class="qc3">
+                                            <div class="qurre_card qc5"></div>
+                                            <div class="qc4">Qurre Card</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="qiwi">
+                                    <div class="qc2">
+                                        <div class="qc3">
+                                            <div class="qiwi qc5"></div>
+                                            <div class="qc4">Qiwi</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="yoomoney">
+                                    <div class="qc2">
+                                        <div class="qc3">
+                                            <div class="yoomoney qc5"></div>
+                                            <div class="qc4">YooMoney</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
+                        <div class="z39">Если не удается создать оплату, используйте другой шлюз</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/all.js"></script>
+    <script src="<%= cdn_host %>/scpsl.store/js/jquery/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/payments/pay.js"></script>
+    <script src="/js/fixes.js"></script>
+    <%- include('../modules/invite') %>
+</body>
+</html>

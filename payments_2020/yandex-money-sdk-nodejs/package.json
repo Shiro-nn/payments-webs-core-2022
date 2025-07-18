@@ -1,0 +1,22 @@
+{
+  "name": "yandex-money-sdk",
+  "version": "0.1.7",
+  "description": "SDK for working with yandex money API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "yandex",
+    "money",
+    "sdk"
+  ],
+  "dependencies": {
+    "request": "2.9.x"
+  },
+  "devDependencies": {
+    "mocha": ">= 1.21.0"
+  },
+  "author": "NBCO Yandex.Money LLC <ermak@yamoney.ru>",
+  "license": "MIT"
+}

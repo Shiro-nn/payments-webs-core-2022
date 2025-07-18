@@ -1,0 +1,89 @@
+<html><head>
+    <link rel="icon" href="/fydne.png">
+    <title>fydne payments</title>
+
+    <meta property="og:title" content="fydne payments - регистрация" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://payments.fydne.xyz" />
+    <meta property="og:image" content="https://payments.fydne.xyz/fydne.png" />
+    <meta property="og:description" content="fydne payments - платежная система" />
+    <meta name="theme-color" content="#00ffff">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css">
+  </head>
+  <body>
+    <input type="hidden" id="userId">
+    <div class="center-vertical" id="account-form-container">
+      <form class="card card-body bg-light" method="post" id="account-form">
+        <h2>Регистрация</h2>
+        <hr>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label col-form-label-sm">Email</label>
+          <div class="col-sm-9">
+            <input class="form-control" id="email-tf" type="email" name="email">
+          </div>
+        </div>
+        <hr>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label col-form-label-sm">Ник</label>
+          <div class="col-sm-9">
+            <input class="form-control disabled" id="user-tf" type="text" name="user">
+          </div>
+        </div>
+        <div class="form-group row margin-zero">
+          <label class="col-sm-3 col-form-label col-form-label-sm">Пароль</label>
+          <div class="col-sm-9">
+            <input class="form-control" id="pass-tf" type="password" name="pass" value="">
+          </div>
+        </div>
+        <hr>
+        <div class="form-buttons">
+          <button class="btn btn-outline-dark" type="button" id="account-form-btn1">Отмена</button>
+          <button class="btn btn-primary" type="submit" id="account-form-btn2">Регистрация</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-form-errors modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">О нет!</h4>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">хм, возникла проблема, повторите позже
+            <ul></ul>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-alert modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Аккаунт создан!</h4>
+          </div>
+          <div class="modal-body">
+            <p>Ваш аккаунт был создан.<br>Нажмите OK, чтобы вернуться на страницу входа.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" id="ok">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+    <script src="/js/views/signup.js"></script>
+    <script src="/js/controllers/signupController.js"></script>
+    <script src="/js/form-validators/accountValidator.js"></script>
+  
+</body></html>

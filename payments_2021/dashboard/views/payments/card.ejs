@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <%- include('../modules/head') %>
+    <title>Оплата | Qurre Card</title>
+    <meta property="og:title" content="Оплата" />
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/payments/pay.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="<%= cdn_host %>/scpsl.store/css/font-awesome.min.css">
+    <script src="<%= cdn_host %>/scpsl.store/js/jquery/jquery.min.js"></script>
+</head>
+<body>
+<style>
+.x1 {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+    position: relative;
+    height: 168px;
+    width: 256px;
+    background: rgb(39, 58, 83);
+    border: 1px solid #242a36c0;
+    border-radius: 8px;
+}
+@media (min-width: 600px){
+.x1 {
+    height: 204px;
+    width: 328px;
+    padding: 28px 32px 32px;
+}}
+@media (min-width: 1024px){
+.x1 {
+    height: 204px;
+    width: 392px;
+    padding: 28px 32px 32px;
+}}
+.x2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+@media (min-width: 600px){
+.x2 {
+    margin-bottom: 12px;
+}}
+.x3 {
+    font-size: 17px;
+    line-height: 20px;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+@media (min-width: 600px){
+.x3 {
+    word-wrap: break-word;
+}}
+.x4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -8px;
+    width: 48px;
+    height: 48px;
+}
+@media (min-width: 600px){
+.x4 {
+    width: 64px;
+    height: 64px;
+}}
+.x5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: auto;
+}
+.x6{
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    transform: none;
+    vertical-align: top;
+}
+.x7{
+    margin-bottom: 24px;
+}
+.x7::-moz-selection{ 
+color: #00000000;
+background: #00000040;
+border-radius: 15px;
+}
+.x7::selection{
+color: #00000000;
+background: #00000000;
+}
+.x7 br, .m13 *, .m14{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+@media (min-width: 600px){
+.x7 {
+    margin-bottom: 32px;
+}}
+.x8 {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    font-size: 13px;
+    line-height: 20px;
+    font-family: haas,pragmatica,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+@media (min-width: 600px){
+.x8 {
+    bottom: 32px;
+    right: 32px;
+}}
+.x9 {
+    display: flex;
+    align-items: center;
+    height: 16px;
+}
+@media (min-width: 600px){
+.x9 {
+    height: 32px;
+}}
+.x10 {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    vertical-align: middle;
+}
+.x10 {
+    width: 38px;
+    height: 16px;
+}
+@media (min-width: 600px){
+.x10 {
+    width: 52px;
+    height: 32px;
+}}
+.x11{
+    width: 100%;
+    height: 100%;
+}
+.x12{
+    width: 48px;
+    height: 48px;
+}
+.x13{
+    border: 2px solid #404b63c0;
+    background-color: #404b6362;
+    width: 224px;
+    height: 34px;
+    padding: 5px;
+    color: rgb(182, 182, 182)
+}
+.x14{
+    margin-top: 10px;
+    border: 2px solid #404b63c0;
+    background-color: #404b6362;
+    width: 50px;
+    height: 30px;
+    padding: 5px;
+    color: rgb(182, 182, 182)
+}
+.x14::placeholder {
+    color: rgb(158, 158, 158);
+}
+.x15{
+    margin-left: 10px;
+}
+.x16{
+    margin-left: 5px;
+    color: rgb(182, 182, 182);
+}
+.m0{
+    width: 100%;
+    height: 100%;
+}
+.m1{
+    margin-left: calc(calc(100vw - max(34%, 276px)) / 2);
+    margin-right: calc(calc(100vw - max(34%, 276px)) / 2);
+    margin-top: 100px;
+    width: max(34%, 276px);
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #404b63;
+}
+.m2{
+    color: #fff;
+    font-weight: 300;
+    line-height: 1.5em;
+    font-size: 1.3em;
+}
+.m3{
+    color: #999;
+    font-size: 14px;
+    margin: 0;
+}
+.m4{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+.m5{
+    margin-bottom: 15px;
+}
+.m7{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.m8{
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 21px;
+}
+.m9{
+    color: #999;
+    font-size: 14px;
+    font-weight: 700;
+}
+.m9-l{float: left;}
+.m9-r{float: right;}
+.m10{
+    color: #beb9b9;
+    font-size: 17px;
+    line-height: 16px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    display: block;
+}
+.m10 a{
+    font-size: 17px;
+    color: #72b96c;
+    text-decoration: none;
+    cursor: url(/cursors/green/pointer.cur), pointer;
+}
+.m11{
+    margin-left: auto;
+    margin-right: auto;
+}
+.m12{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+.m12-error{background-color: red;}
+.m12-unavilable{background-color: rgb(48, 48, 48);}
+.m12-waiting{background-color: rgb(255, 217, 0);}
+.m12-now{background-color: rgb(112, 235, 198);}
+.m13{display: flex;}
+.m14{
+    line-height: 1.15;
+    font-family: inherit;
+    overflow: visible;
+    text-transform: none;
+    -webkit-appearance: button;
+    border: none;
+    color: #fff;
+    background: #424557;
+    will-change: opacity;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 4px;
+    -webkit-transition: background 0.2s,color 0.2s;
+    transition: background 0.2s,color 0.2s;
+    box-shadow: 0 1px 4px -2px black, inset 0 2px 1px -1px rgb(255 255 255 / 10%);
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.m14:hover {
+    color: #85ff81;
+}
+</style>
+    <div class="m0">
+        <div class="m1">
+            <div class="m4">
+                <span class="m2">Qurre Pay</span>
+                <p class="m3"><%= pay.desc %></p>
+                <hr class="m5"/>
+            </div>
+            <div class="x1" id="card.color">
+                <div class="x2">
+                    <div id="card.text" style="color: rgb(255, 255, 255);">
+                        <div class="x3" id="card.bank"></div>
+                    </div>
+                    <div class="x4">
+                        <div class="x5">
+                            <div class="x6">
+                                <div class="x12" id="card.img"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="x7">
+                    <input class="x13" id="card.number" placeholder="Введите номер карты" type="tel" autocomplete="off">
+                    <br>
+                    <input class="x14" id="card.date" placeholder="00/00" type="tel" autocomplete="off">
+                    <input class="x14 x15" id="card.cvv" placeholder="CVV" type="password" autocomplete="off" maxlength="3">
+                    <i class="x16 fa-solid fa-lock" id="card.lockIcon"></i>
+                </div>
+                <div class="x8">
+                    <div class="x9">
+                        <div class="x10">
+                            <div class="x11" id="card.paysystem"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m4">
+                <hr class="m7"/>
+                <div class="m8">
+                    <span class="m9 m9-l">Сумма:</span>
+                    <span class="m9 m9-r"><%= pay.sum %>₽</span>
+                </div>
+                <div class="m8">
+                    <span class="m9 m9-l">Комиссия:</span>
+                    <span class="m9 m9-r"><qp id="card.pay.commission">?</qp>₽</span>
+                </div>
+                <div class="m8">
+                    <span class="m9 m9-l">Итого:</span>
+                    <span class="m9 m9-r"><qp id="card.pay.sum">?</qp>₽</span>
+                </div>
+                <div class="m8">
+                    <span class="m9 m9-l">Банк:</span>
+                    <span class="m9 m9-r" id="card.pay.bank">Не выбран</span>
+                </div>
+                <hr class="m7"/>
+                <span class="m10">Совершая перевод, вы автоматически соглашаетесь с <a href="/oferta" target="_blank">офертой</a></span>
+                <hr class="m7"/>
+                <button class="m14" id="card.button">Произошла ошибка..</button>
+                <div class="m13">
+                    <div class="m11">
+                        <div class="m12 m12-waiting" id="bank.tinkoff"></div>
+                        <div class="m12 m12-unavilable" id="bank.rshb"></div>
+                        <div class="m12 m12-unavilable" id="bank.open"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="dtl">
+        const sum = parseInt('<%= pay.sum %>');
+        document.getElementById('dtl').outerHTML = '';
+    </script>
+    <script src="/js/all.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="<%= cdn_host %>/scpsl.store/css/tippy.animations.scale.css"/>
+    <script src="<%= cdn_host %>/scpsl.store/js/popper.min.js"></script>
+    <script src="<%= cdn_host %>/scpsl.store/js/tippy-bundle.umd.js"></script>
+    <script src="https://unpkg.com/fast-average-color/dist/index.min.js"></script>
+    <script src="<%= cdn_host %>/scpsl.store/js/crypto.js"></script>
+    <script src="/js/logger.js"></script>
+    <script src="/js/payments/card.js"></script>
+    <script src="/js/fixes.js"></script>
+</body>
+</html>
